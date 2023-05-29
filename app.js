@@ -10,8 +10,10 @@ var iFirstName = document.querySelector(".iFirstName");
 var iSurnameName = document.querySelector(".iSurnameName");
 var newpasswordsignup = document.querySelector(".newpasswordsignup");
 var mobilenumsignup = document.querySelector(".mobilenumsignup");
+var femaleradio = document.querySelector("#femaleradio");
+var maleradio = document.querySelector("#maleradio");
 
-console.log(body);
+// console.log(femaleradio);
 
 let divfordateofbirthdate = "";
 let divfordateofbirthmonth = "";
@@ -19,12 +21,27 @@ let divfordateofbirthyear = "";
 let dateofbirthdatevalue;
 let dateofbirthmonthvalue;
 let dateofbirthyearvalue;
+let gender = "";
 
 const monthS = ["Jan", "Feb", "Mar", "Apr", "May","Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const users = JSON.parse(localStorage.getItem('users')) || []
+
 
 dateofbirthyear.addEventListener('change', function() {
     countdateofbirthyearvalue(this.value);
 });
+
+function removecheckfromfemale() {
+    maleradio.checked = true;
+    femaleradio.checked = false;
+    gender = "Male";
+}
+
+function removecheckfrommale() {
+    femaleradio.checked = true;
+    maleradio.checked = false;
+    gender = "Female";
+  }
 
 function countdateofbirthyearvalue(n) {
     dateofbirthyearvalue = n;
@@ -79,12 +96,22 @@ existsign.addEventListener('click',()=>{
     modalbody.classList.add('none');
 });
 
+
 signupbtn.addEventListener('click',()=>{
-    console.log(iFirstName.value);
-    console.log(iSurnameName.value);
-    console.log(newpasswordsignup.value);
-    console.log(mobilenumsignup.value);
-    console.log(dateofbirthdatevalue);
-    console.log(dateofbirthmonthvalue);
-    console.log(dateofbirthyearvalue);
-});
+    var user = [{
+        iFirstName: iFirstName.value,
+        iSurnameName: iSurnameName.value,
+        newpasswordsignup: newpasswordsignup.value, 
+        mobilenumsignup :mobilenumsignup.value,
+        dateofbirthdatevalue :dateofbirthdatevalue,
+        dateofbirthmonthvalue: dateofbirthmonthvalue,
+        dateofbirthyearvalue :dateofbirthyearvalue,
+        gender: gender
+    }]
+
+    users.push(user)
+
+
+    localStorage.setItem('isLoggedInUser', JSON.stringify(users))
+})
+
