@@ -107,7 +107,7 @@ table{
 }
 
 .none{
-    display: none;
+    display: none !important;
 }
 
 .modalbody{
@@ -123,11 +123,12 @@ table{
 
 .modalcontent{
     width: 40%;
-    height: 70%;
+    height: 80%;
     background-color: white;
     border-radius: 8px;
     box-shadow: 2px 1px 10px rgba( 00, 00, 00 , 30%);
     padding: 10px 1%;
+    
 }
 
 .header1ofmcontent{
@@ -170,4 +171,44 @@ table{
 .inputDOBinsignup select{
     width: 32%;
     padding: 5px 8px;
+}
+
+.borderonepx{
+    border: 1px solid rgba(0, 0, 0, 30%);
+    /* padding: 10px 20px;
+    width: 32%;*/
+    padding: 5px 8px; 
+    /* border-radius: 8px; */
+    display: flex;
+    align-items: center;
+    width: 45%;
+    justify-content: space-between;
+    font-size: large;
+}
+
+.genderinputsignup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.signupbtn{
+    margin-left: 20%;
+    border-radius: 8px;
+    border: none;
+    background-color: #3fb82a;
+    width: 60%;
+    padding: 8px 20px;
+    font-size: larger;
+    color: white;
+    transition: .2s ease-in-out;
+}
+
+.signupbtn:hover{
+    background-color: #349024;
+}
+
+.removeoverflow{
+    overflow: hidden;
 }

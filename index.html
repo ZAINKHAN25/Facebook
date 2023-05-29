@@ -121,42 +121,53 @@
         </table>
     </div>
     <!-- modal body which is black -->
-    <div class="modalbody">
+    <div class="modalbody none">
         <!-- white space in modal time -->
         <div class="modalcontent">
 
             <div class="header1ofmcontent">
                 <h1 style="font-size: 35px;">Sign Up</h1>
-                <i class="fa-solid fa-x"></i>
+                <i class="fa-solid fa-x existsign"></i>
             </div>
 
-            <p style="margin-bottom: 10px;color: rgba( 00, 00, 00 , 70%);;">It's quick and easy.</p>
+            <p style="margin-bottom: 10px;color: rgba( 00, 00, 00 , 70%);">It's quick and easy.</p>
             <hr>
-            
+
             <div class="inputsignup">
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Surname Name">
+                <input class="iFirstName" type="text" placeholder="First Name">
+                <input class="iSurnameName" type="text" placeholder="Surname Name">
             </div>
 
-            <input type="text" placeholder="Mobile number or email address"class="mobilenumsignup">
-            <input type="password" placeholder="New Password"class="newpasswordsignup">
-            
+            <input type="text" placeholder="Mobile number or email address" class="mobilenumsignup">
+            <input type="password" placeholder="New Password" class="newpasswordsignup">
+
             <p style="margin-bottom: 10px;color: rgba( 00, 00, 00 , 70%);margin-top: 10px;">Date of Birth?</p>
-            
+
             <div class="inputDOBinsignup">
-                <select id="dateofbirthdate"></select>
+                <select id="dateofbirthdate">
+                    <option onclick=""></option>
+                </select>
                 <select id="dateofbirthmonth"></select>
                 <select id="dateofbirthyear"></select>
             </div>
-            
+
             <p style="margin-bottom: 10px;color: rgba( 00, 00, 00 , 70%);margin-top: 10px;">Gender?</p>
+            
+            
+                <div class="genderinputsignup">
+                    <div class="divgendermalesignup borderonepx">
+                        Male <input type="radio" checked name="gender" id="">
+                    </div>
 
-            <div class="genderinputsignup">
-                
-                <input type="radio" name="genre"checked="checked" /> Male
-                <input type="radio" name="genre"checked="checked" /> Female
-            </div>
+                    <div class="divgenderfemalesignup borderonepx">
+                        Female <input type="radio" checked name="gender" id="">
+                    </div>
+                    
+                </div>
+                <p style="font-size: small;margin-bottom: 10px;color: rgba( 00, 00, 00 , 70%);margin-top: 10px;">People who use our service may have uploaded your contact information to Facebook. Learn more. <a href="#" style="color: blue;"> Learn More</a></p>
+                <p style="font-size: small;margin-bottom: 10px;color: rgba( 00, 00, 00 , 70%);margin-top: 10px;">By clicking Sign Up, you agree to our <a href="#" style="color:blue;"> Terms, Privacy Policy</a> and <a href="#" style="color:blue;">Cookies Policy.</a> You may receive SMS notifications from us and can opt out at any time.</p>
 
+                <input class="signupbtn" type="button" value="Sign Up">
         </div>
     </div>
     <script src="app.js"></script>
