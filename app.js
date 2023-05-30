@@ -13,8 +13,6 @@ var mobilenumsignup = document.querySelector(".mobilenumsignup");
 var femaleradio = document.querySelector("#femaleradio");
 var maleradio = document.querySelector("#maleradio");
 
-// console.log(femaleradio);
-
 let divfordateofbirthdate = "";
 let divfordateofbirthmonth = "";
 let divfordateofbirthyear = "";
@@ -23,11 +21,10 @@ let dateofbirthmonthvalue;
 let dateofbirthyearvalue;
 let gender = "";
 
-const monthS = ["Jan", "Feb", "Mar", "Apr", "May","Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const users = JSON.parse(localStorage.getItem('users')) || []
+const monthS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const users = JSON.parse(localStorage.getItem('users')) || [];
 
-
-dateofbirthyear.addEventListener('change', function() {
+dateofbirthyear.addEventListener('change', function () {
     countdateofbirthyearvalue(this.value);
 });
 
@@ -41,13 +38,13 @@ function removecheckfrommale() {
     femaleradio.checked = true;
     maleradio.checked = false;
     gender = "Female";
-  }
+}
 
 function countdateofbirthyearvalue(n) {
     dateofbirthyearvalue = n;
 }
 
-dateofbirthdate.addEventListener('change', function() {
+dateofbirthdate.addEventListener('change', function () {
     countdateofbirthdatevalue(this.value);
 });
 
@@ -55,7 +52,7 @@ function countdateofbirthdatevalue(n) {
     dateofbirthdatevalue = n;
 }
 
-dateofbirthmonth.addEventListener('change', function() {
+dateofbirthmonth.addEventListener('change', function () {
     countdateofbirthmonthvalue(this.value);
 });
 
@@ -72,7 +69,7 @@ for (let i = 1; i <= 31; i++) {
 dateofbirthdate.innerHTML = divfordateofbirthdate;
 
 // This code is for date of birth month in the signup form.
-for(let i = 0; i <= (monthS.length - 1); i++) {
+for (let i = 0; i <= (monthS.length - 1); i++) {
     let divofmonth = `<option>${monthS[i]}</option>`;
     divfordateofbirthmonth += divofmonth;
 }
@@ -80,38 +77,61 @@ for(let i = 0; i <= (monthS.length - 1); i++) {
 dateofbirthmonth.innerHTML = divfordateofbirthmonth;
 
 // This code is for date of birth year in the signup form.
-for(let i = 2023; i >= 1905; i--) {
+for (let i = 2023; i >= 1905; i--) {
     let divofyear = `<option>${i}</option>`;
     divfordateofbirthyear += divofyear;
 }
 
 dateofbirthyear.innerHTML = divfordateofbirthyear;
 
-createaccount.addEventListener('click',()=>{
+createaccount.addEventListener('click', () => {
     modalbody.classList.remove('none');
     body.classList.add('removeoverflow');
 });
 
-existsign.addEventListener('click',()=>{
+existsign.addEventListener('click', () => {
     modalbody.classList.add('none');
 });
 
+signupbtn.addEventListener('click', () => {
+    if (iFirstName.value === "" || iSurnameName.value === "" || newpasswordsignup.value === "" || mobilenumsignup.value === "" || dateofbirthdatevalue === undefined || dateofbirthmonthvalue === undefined || dateofbirthyearvalue === undefined) {
+        alert("Please fill the following form completely");
+        return false;
+    }
 
-signupbtn.addEventListener('click',()=>{
-    var user = [{
+    let istrue;
+    users.forEach(function(element) {
+        if (element.iFirstName + element.iSurnameName === iFirstName.value + iSurnameName.value) {
+           alert('This name is already exist please write another name for your account name')
+           istrue = false;
+           return false
+        }
+
+        if(element.mobilenumsignup === mobilenumsignup.value){
+            alert("this email is already in use please try from another email")
+            istrue = false;
+            return false
+        }
+    });
+    
+
+    if(istrue === true){
+
+        
+        var user = {
         iFirstName: iFirstName.value,
         iSurnameName: iSurnameName.value,
-        newpasswordsignup: newpasswordsignup.value, 
-        mobilenumsignup :mobilenumsignup.value,
-        dateofbirthdatevalue :dateofbirthdatevalue,
+        newpasswordsignup: newpasswordsignup.value,
+        mobilenumsignup: mobilenumsignup.value,
+        dateofbirthdatevalue: dateofbirthdatevalue,
         dateofbirthmonthvalue: dateofbirthmonthvalue,
-        dateofbirthyearvalue :dateofbirthyearvalue,
+        dateofbirthyearvalue: dateofbirthyearvalue,
         gender: gender
-    }]
+    };
 
-    users.push(user)
-
-
-    localStorage.setItem('isLoggedInUser', JSON.stringify(users))
-})
-
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+}
+    modalbody.classList.add('none');
+    body.classList.remove('removeoverflow');
+});
