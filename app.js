@@ -12,6 +12,8 @@ var newpasswordsignup = document.querySelector(".newpasswordsignup");
 var mobilenumsignup = document.querySelector(".mobilenumsignup");
 var femaleradio = document.querySelector("#femaleradio");
 var maleradio = document.querySelector("#maleradio");
+var emailforlogin = document.querySelector('#emailforlogin')
+var passwordforlogin = document.querySelector('#passwordforlogin')
 
 let divfordateofbirthdate = "";
 let divfordateofbirthmonth = "";
@@ -99,23 +101,23 @@ signupbtn.addEventListener('click', () => {
         return false;
     }
 
-    let istrue;
+    // let istrue;
     users.forEach(function(element) {
         if (element.iFirstName + element.iSurnameName === iFirstName.value + iSurnameName.value) {
            alert('This name is already exist please write another name for your account name')
-           istrue = false;
            return false
+        //    istrue = false;
         }
 
         if(element.mobilenumsignup === mobilenumsignup.value){
             alert("this email is already in use please try from another email")
-            istrue = false;
             return false
+            // istrue = false;
         }
     });
     
 
-    if(istrue === true){
+    // if(istrue === true){
 
         
         var user = {
@@ -131,7 +133,24 @@ signupbtn.addEventListener('click', () => {
 
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
-}
     modalbody.classList.add('none');
     body.classList.remove('removeoverflow');
+// }
+// else{
+//     alert("Poga")
+// }
 });
+
+function login(){
+    users.filter(function(element) {
+    if (element.mobilenumsignup === emailforlogin.value && element.newpasswordsignup === passwordforlogin.value) {
+        console.log("Chal gya");
+        
+        localStorage.setItem('lOGINUSER', JSON.stringify(element));
+        location.href = "./Dashbord/index.html";
+    }
+    else{
+        console.log("nahi chala")
+    }
+});
+}
