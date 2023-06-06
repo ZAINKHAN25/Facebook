@@ -1,14 +1,14 @@
 let lOGINUSER = JSON.parse(localStorage.getItem('lOGINUSER'))
 var h1 = document.querySelector('.h1')
 
-if(!lOGINUSER){
-    alert("Please Login in first")
-    window.location.href = "../index.html"
+if(lOGINUSER){
+    console.log(lOGINUSER);
+    h1.innerHTML = `Hello ${lOGINUSER.iFirstName} ${lOGINUSER.iSurnameName} `
 }
 
 else{
-    console.log(lOGINUSER);
-    h1.innerHTML = `Hello ${lOGINUSER.iFirstName} ${lOGINUSER.iSurnameName} `
+    alert("Please Login in first")
+    window.location.href = "../index.html"
 }
 
 function logout(){
