@@ -22,7 +22,7 @@ const postArea = document.getElementById("postAreaId")
 
 
 // [selected posts of logged in user]
-posts.filter((post) => post.userEmail === isLoggedInUser.mobilenumsignup).forEach((post) => {
+posts.forEach((post) => {
     var div = document.createElement('div')
     div.setAttribute('class', 'post my-5 bg-light rounded')
 
@@ -51,7 +51,7 @@ posts.filter((post) => post.userEmail === isLoggedInUser.mobilenumsignup).forEac
     <p>
     ${post.postContent}
     </p>
-    <img src="../assets/dummyPostImage.jpg" alt="" class="img-fluid">
+    <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
 </div>
 <div class="buttons">
     <p>Like</p>
@@ -76,7 +76,7 @@ posts.filter((post) => post.userEmail === isLoggedInUser.mobilenumsignup).forEac
     //     <p>
     //         ${post.postContent}
     //     </p>
-    //     <img src="../assets/dummyPostImage.jpg" alt="" class="img-fluid">
+    //     <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
     // </div>`
 
     postArea.prepend(div)
@@ -135,7 +135,7 @@ function postHandler() {
     <p>
     ${postInputBox.value}
     </p>
-    <img src="../assets/dummyPostImage.jpg" alt="" class="img-fluid">
+    <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
 </div>
 <div class="buttons">
     <p>Like</p>
@@ -160,13 +160,13 @@ function postHandler() {
     //     <p>
     //         ${postInputBox.value}
     //     </p>
-    //     <img src="../assets/dummyPostImage.jpg" alt="" class="img-fluid">
+    //     <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
     // </div>`
 
     postArea.prepend(div)
 
     const postObj = {
-        userName: `${isLoggedInUser.firstName} ${isLoggedInUser.surName}`,
+        userName: isLoggedInUser.iFirstName + " " + isLoggedInUser.iSurnameName,
         userEmail: isLoggedInUser.email,
         userDescription: isLoggedInUser.description,
         postContent: postInputBox.value,

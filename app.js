@@ -143,7 +143,7 @@ signupbtn.addEventListener('click', () => {
 
 function login(){
     users.filter(function(element) {
-    if (element.mobilenumsignup === emailforlogin.value && element.newpasswordsignup === passwordforlogin.value) {
+    if (element.mobilenumsignup == emailforlogin.value && element.newpasswordsignup == passwordforlogin.value) {
         console.log("Chal gya");
         
         localStorage.setItem('lOGINUSER', JSON.stringify(element));
