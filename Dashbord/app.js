@@ -30,7 +30,7 @@ posts.forEach((post) => {
     <div class="authorDetails d-flex ">
         <img src="../assests/avatar.png" alt="" class="profilePicture">
         <div>
-            <h4 style="font-size: 15px;">${post.userName}</h4>
+            <h4 style="font-size: 15px;">${post.userName || "nahi arha hai is me"}</h4>
             <h5 style="font-size: 12px;">${post.description || "No description added"}</h5>
             <h6 style="font-size: 10px;">${post.date.split('T')[0]}</h6>
             <h6 style="font-size: 10px;">${post.time}</h6>
@@ -114,7 +114,7 @@ function postHandler() {
     <div class="authorDetails d-flex ">
         <img src="../assests/avatar.png" alt="" class="profilePicture">
         <div>
-            <h4 style="font-size: 15px;">${isLoggedInUser.iFirstName}</h4>
+            <h4 style="font-size: 15px;">${isLoggedInUser.iFirstName} ${isLoggedInUser.iSurnameName}</h4>
             <h5 style="font-size: 12px;">${isLoggedInUser.description || "No description added"}</h5>
             <h6 style="font-size: 10px;">${new Date()}</h6>
             <h6 style="font-size: 10px;">${new Date().toLocaleTimeString()}</h6>
@@ -164,9 +164,9 @@ function postHandler() {
     // </div>`
 
     postArea.prepend(div)
-
+    postInputBox.value = "";
     const postObj = {
-        userName: isLoggedInUser.iFirstName + " " + isLoggedInUser.iSurnameName,
+        userName: `${isLoggedInUser.iFirstName} ${isLoggedInUser.iSurnameName}`,
         userEmail: isLoggedInUser.email,
         userDescription: isLoggedInUser.description,
         postContent: postInputBox.value,
