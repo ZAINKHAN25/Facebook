@@ -20,9 +20,8 @@ const postArea = document.getElementById("postAreaId")
 
 
 
-
 // [selected posts of logged in user]
-posts.forEach((post) => {
+posts.filter((filtered)=>filtered.userEmail == isLoggedInUser.mobilenumsignup).forEach((post) => {
     var div = document.createElement('div')
     div.setAttribute('class', 'post my-5 bg-light rounded')
 
