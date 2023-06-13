@@ -57,7 +57,7 @@ function displayPosts(posts) {
       </div>
     `;
 
-    postArea.appendChild(div);
+    postArea.prepend(div);
   }
 }
 
