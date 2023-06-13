@@ -24,7 +24,7 @@ const postArea = document.getElementById("postAreaId")
 // [selected posts of logged in user]
 posts.forEach((post) => {
     var div = document.createElement('div')
-    div.setAttribute('class', 'post my-5 bg-light rounded')
+    div.setAttribute('class', 'post')
 
     div.innerHTML = `<div class="upperPart">
     <div class="authorDetails d-flex ">
@@ -41,9 +41,9 @@ posts.forEach((post) => {
             data-bs-toggle="dropdown" aria-expanded="false">
             :
         </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete</a></li>
+        <ul class="dropdown-menu3">
+            <li><a class="dropdown-items" href="#">Edit</a></li>
+            <li><a class="dropdown-items" href="#">Delete</a></li>
         </ul>
     </div>
 </div>
@@ -108,10 +108,10 @@ function logoutHandler() {
 function postHandler() {
 
     var div = document.createElement('div')
-    div.setAttribute('class', 'post my-5 bg-light rounded')
+    div.setAttribute('class', 'post')
 
     div.innerHTML = `<div class="upperPart">
-    <div class="authorDetails d-flex ">
+    <div class="authorDetails">
         <img src="../assests/avatar.png" alt="" class="profilePicture">
         <div>
             <h4 style="font-size: 15px;">${isLoggedInUser.iFirstName} ${isLoggedInUser.iSurnameName}</h4>
@@ -122,12 +122,12 @@ function postHandler() {
     </div>
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
+            data-bs-toggle="dropdownd" aria-expanded="false">
             :
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete</a></li>
+            <li><a class="nahidro" href="#">Edit</a></li>
+            <li><a class="nahidro" href="#">Delete</a></li>
         </ul>
     </div>
 </div>
@@ -196,3 +196,17 @@ function logout(){
         window.location.href = "../index.html"
     }
 }
+
+
+function navbarScrollingDropdown() {
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+    var dropdownkeclickperanewalelist = document.querySelectorAll('.dropdownkeclickperanewalelist');
+    
+    dropdownItems.forEach(function(item) {
+      item.classList.toggle('none');
+    });
+    dropdownkeclickperanewalelist.forEach(function(item) {
+      item.classList.toggle('removeborderandbackground');
+    });
+  }
+  
