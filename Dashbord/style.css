@@ -1,189 +1,148 @@
- *{
-    padding: 0;
+/* Add your custom styles here */
+
+body {
     margin: 0;
-    box-sizing: border-box;
-    color: #05B6C1;
- }
-
- a{
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .navbar-brand {
+    color: #343a40;
     text-decoration: none;
- }
-
- body{
-    background-color: #05B6C1;
- }
- 
- .avatarDummy {
-    width: 30px;
-    border-radius: 50%;
-}
-
-.boxStyle {
-    background-color: white;
-    height: 100%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 0px;
-}
-
-.profilePicture {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-}
-
-.postInputArea {
-    width: 100%;
+  }
+  
+  .navbar .navbar-brand:hover {
+    text-decoration: underline;
+  }
+  
+  .searchArea {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
+  }
 
-.commentInputArea {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.postInput {
-    width: 80%;
-    border-radius: 30px;
-}
-
-.commentInput {
-    width: 80%;
-    border-radius: 30px;
-}
-
-.postArea {
-    margin-top: 5px;
-    width: 100%;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-}
-
-.upperPart {
-    display: flex;
-    justify-content: space-between;
-}
-
-.navbar{
-    position: sticky;
-    top: 0;
-    background-color: white;
-    width: 90vw;
-    height: 45px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 50%;
-    transform: translate(-50%, 0%);
-    box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.25);
-}
-
-.none{
+  .none{
     display: none !important;
-}
-
-.nechejaniwaledropdown{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 2px;
-}
-
-.dropdownkeclickperanewalelist{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    border: 0px solid black;
-    border-radius: 8px;
-    top: 50px;
-    padding: 5px 15px;
-    right: 20px;
-}
-
-.removeborderandbackground{
-    background-color: white;
-    border: 1px solid rgb(203, 203, 203);
-}
-
-.inputtextsearch::placeholder{
-    width: 226.28px;
-    height: 37px;
-    font-family: 'Inter';
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 30px;
+  }
+  
+  .searchArea .inputtextsearch {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .searchArea .search {
+    background-color: #ccc;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .alagchezen {
     display: flex;
     align-items: center;
-    color: #A3A3A3;
-    padding-left: 15px;
-}
-
-.inputtextsearch{
-    box-sizing: border-box;
-    width: 375.91px;
-    height: 30px;
-    background: #FFFFFF;
-    border: 1px solid #9C9B9B;
-    border-radius: 5px;
-}
-
-.search{
-    background: #FFFFFF;
-    border: 3px solid #05B6C1;
-    border-radius: 5px;
-    width: 90px;
-    height: 30px;
-}
-.search:hover{
-    background-color: #05B6C1;
-    color: white;
-}
-
-.active{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-color: #05B6C1;
-position: sticky;
-top: 12px;
-margin-right: 5px;
-padding: 1px 0px;
-}
-
-.active:hover{
-    color: white;
-    background-color: #05B6C1;
-}
-
-.alagchezen{
-    display: flex;
-    align-items: center;
-    justify-self: center;
-    margin-top: 1px;
-    width: 200px;
-    height: 500px;
-}
-
-.dropdown-item{
-    font-size: larger;
+  }
+  
+  .alagchezen .nav-link {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #343a40;
+  }
+  
+  .alagchezen .nav-link.active {
     font-weight: bold;
-}
-
-.dropdown-item:hover{
-    background-color: #05B6C1;
-    color: white;
-    width: 100%;
-}
+  }
+  
+  .avatarDummy {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border-radius: 50%;
+  }
+  
+  .dropdownkeclickperanewalelist {
+    position: absolute;
+    background-color: #f8f9fa;
+    padding: 5px;
+    top: 30px;
+    right: 20px;
+    border-radius: 5px;
+  }
+  
+  .navbar .dropdownkeclickperanewalelist .dropdown-item {
+    color: #343a40;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .navbar .dropdownkeclickperanewalelist .dropdown-item:hover {
+    background-color: #ccc;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .boxStyle {
+    background-color: #f8f9fa;
+    width: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profilePicture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .postInputArea {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .postInput {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 16px;
+  }
+  
+  .postInputArea button {
+    background-color: #343a40;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .post {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  

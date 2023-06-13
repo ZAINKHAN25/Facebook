@@ -1,9 +1,9 @@
 let isLoggedInUser = JSON.parse(localStorage.getItem('lOGINUSER'))
 // var h1 = document.querySelector('.h1')
+const posts = JSON.parse(localStorage.getItem('posts')) || []
 
 if(isLoggedInUser){
     console.log(isLoggedInUser);
-    const posts = JSON.parse(localStorage.getItem('posts')) || []
 
 
 
@@ -21,7 +21,7 @@ const postArea = document.getElementById("postAreaId")
 
 
 // [selected posts of logged in user]
-posts.filter((filtered)=>filtered.userEmail == isLoggedInUser.mobilenumsignup).forEach((post) => {
+posts.filter((filtered)=>filtered.email == isLoggedInUser.mobilenumsignup).forEach((post) => {
     var div = document.createElement('div')
     div.setAttribute('class', 'post my-5 bg-light rounded')
 
@@ -29,9 +29,9 @@ posts.filter((filtered)=>filtered.userEmail == isLoggedInUser.mobilenumsignup).f
     <div class="authorDetails d-flex ">
         <img src="../assests/avatar.png" alt="" class="profilePicture">
         <div>
-            <h4 style="font-size: 15px;">${post.userName || "nahi arha hai is me"}</h4>
+            <h4 style="font-size: 15px;">${post.userNameu || "nahi arha hai is me"}</h4>
             <h5 style="font-size: 12px;">${post.description || "No description added"}</h5>
-            <h6 style="font-size: 10px;">${post.date.split('T')[0]}</h6>
+            <h6 style="font-size: 10px;">${post.id}</h6>
             <h6 style="font-size: 10px;">${post.time}</h6>
         </div>
     </div>
@@ -48,7 +48,7 @@ posts.filter((filtered)=>filtered.userEmail == isLoggedInUser.mobilenumsignup).f
 </div>
 <div class="postData">
     <p>
-    ${post.postContent}
+    ${post.content}
     </p>
     <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
 </div>
