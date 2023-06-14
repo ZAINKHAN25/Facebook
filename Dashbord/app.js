@@ -51,8 +51,8 @@ date: new Date().getDate()
     displayPosts(posts);
     
     postInput.value = "";
-    modalbody.classList.add('none')
     body.classList.remove('overflowhidden')
+    modalbody.classList.add('none')
   }
 }
 
@@ -64,11 +64,32 @@ function displayPosts(posts) {
     const div = document.createElement("div");
     div.className = "post";
     div.innerHTML = `
-    <div class="postContent">
-    <p>${post.content}</p>
+
+
+    <div class="firstdivofpost">
+
+      <div class="imgarea">
+        <img src="../assests/avatar.png" class="postimg" alt="">
+      </div>
+      <div class="colomnwalakam">
+        <div class="span1offirslline">${post.userNameu}</div>
+        <div class="span2offirslline">No description added</div>
+        <div class="span3offirslline">5 hours ago</div>
+      </div>
+
+    </div>
+
+
+    <div class="seconddivofpost">${post.content}</div>
+
+
+    <div class="thirddivofpost">
+      <span><i class="fa-regular gapfromside fa-heart"></i>PHOTOS</span>
+      <span><i class="fa-solid fa-share-from-square"></i>SHARE</span>
+      <span><i class="fa-regular gapfromside fa-comment-dots"></i>COMMENT</span>
     </div>
     `;
-    
+    console.log(post)
     postArea.prepend(div);
   }
 }
