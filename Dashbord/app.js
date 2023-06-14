@@ -1,3 +1,4 @@
+var modalbody = document.querySelector('.modalbody')
 let isLoggedInUser = JSON.parse(localStorage.getItem("lOGINUSER")) || [];
 console.log("", isLoggedInUser);
 
@@ -12,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.getElementById('nikalnahhai').addEventListener('click', function() {
+  var postInputBox = document.getElementById('postInputBox');
+  postInputBox.focus();
+});
+
 function displayUserInfo(user) {
   document.getElementById("userName").textContent = user.iFirstName + ' ' + user.iSurnameName;
   document.getElementById("emailAddress").textContent = user.email;
@@ -21,8 +27,11 @@ function displayUserInfo(user) {
 }
 
 function postHandler() {
+  const nikalnahhai = document.querySelector('#nikalnahhai')
   const postInput = document.getElementById("postInputBox");
   const postContent = postInput.value;
+
+  nikalnahhai.focuses = postContent.focuses;
 
   if (postContent.trim() !== "") {
     const post = {
@@ -41,13 +50,14 @@ date: new Date().getDate()
     displayPosts(posts);
 
     postInput.value = "";
+    modalbody.classList.add('none')
   }
 }
 
 function displayPosts(posts) {
   const postArea = document.getElementById("postAreaId");
   postArea.innerHTML = "";
-
+  
   for (let post of posts) {
     const div = document.createElement("div");
     div.className = "post";
@@ -55,10 +65,10 @@ function displayPosts(posts) {
       <div class="postContent">
         <p>${post.content}</p>
       </div>
-    `;
-
-    postArea.prepend(div);
-  }
+      `;
+      
+      postArea.prepend(div);
+    }
 }
 
 function logout() {
@@ -77,4 +87,12 @@ function navbarScrollingDropdown(){
         item.classList.toggle('removeborderandbackground');
     
 })
+}
+
+function removemodalfoo(){
+  modalbody.classList.add('none')
+}
+
+function openmodalfoo(){
+  modalbody.classList.remove('none')
 }
