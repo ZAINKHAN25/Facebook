@@ -56,14 +56,14 @@
           <form>
             <div class="mb-3">
               <textarea class="form-control" id="postInputBox"
-                style="padding: 5px; width: 100%; height: 162px; background-color: rgb(255, 255, 255);"
+                style="padding: 5px; width: 100%; height: 100px; background-color: rgb(255, 255, 255);"
                 placeholder="What do you want to talk about"></textarea>
             </div>
           </form>
         </div>
 
         <input class="no1pagalhaiyebutton" type="button" onclick="removemodalfoo()" value="Close">
-        <input  class="no2pagalhaiyebutton" type="button" value="Post" onclick="postHandler()">
+        <input class="no2pagalhaiyebutton" type="button" value="Post" onclick="postHandler()">
 
       </div>
 
@@ -83,9 +83,16 @@
       </div>
       <div class="boxStyle">
         <div class="postInputArea">
-          <img src="../assests/avatar.png" class="profilePicture" alt="">
-          <input onclick="openmodalfoo()" placeholder="Create a new post" id="nikalnahhai" type="text" class="postInput">
-          <!-- <button onclick="postHandler()">Post</button> -->
+          <div class="firstlineofpostinputar">
+            <img src="../assests/avatar.png" class="profilePicture" alt="">
+            <input onclick="openmodalfoo()" placeholder="Create a new post" id="nikalnahhai" type="text"
+              class="postInput">
+          </div>
+          <div class="secondlineofpostinputar">
+              <span><i class="fa-solid gapfromside fa-image"></i>PHOTOS</span>
+              <span><i class="fa-solid gapfromside fa-circle-play"></i>VIDEO</span>
+              <span><i class="fa-solid gapfromside fa-newspaper"></i>WRITE ARTICLE</span>
+          </div>
         </div>
 
         <div class="postArea" id="postAreaId"></div>

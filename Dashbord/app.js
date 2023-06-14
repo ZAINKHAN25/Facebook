@@ -1,3 +1,4 @@
+var body = document.querySelector('body')
 var modalbody = document.querySelector('.modalbody')
 let isLoggedInUser = JSON.parse(localStorage.getItem("lOGINUSER")) || [];
 console.log("", isLoggedInUser);
@@ -46,11 +47,12 @@ date: new Date().getDate()
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
     posts.push(post);
     localStorage.setItem("posts", JSON.stringify(posts));
-
+    
     displayPosts(posts);
-
+    
     postInput.value = "";
     modalbody.classList.add('none')
+    body.classList.remove('overflowhidden')
   }
 }
 
@@ -62,13 +64,13 @@ function displayPosts(posts) {
     const div = document.createElement("div");
     div.className = "post";
     div.innerHTML = `
-      <div class="postContent">
-        <p>${post.content}</p>
-      </div>
-      `;
-      
-      postArea.prepend(div);
-    }
+    <div class="postContent">
+    <p>${post.content}</p>
+    </div>
+    `;
+    
+    postArea.prepend(div);
+  }
 }
 
 function logout() {
@@ -91,8 +93,17 @@ function navbarScrollingDropdown(){
 
 function removemodalfoo(){
   modalbody.classList.add('none')
+  body.classList.remove('overflowhidden')
 }
 
-function openmodalfoo(){
-  modalbody.classList.remove('none')
+function openmodalfoo() {
+  var modalbody = document.querySelector('.modalbody');
+  var userName = document.querySelector('.infonamemodal h2');
+  var userMobNum = document.querySelector('.infonamemodal p');
+
+  // Update the username and mobile number dynamically
+  userName.textContent = isLoggedInUser.iFirstName + " " + isLoggedInUser.iSurnameName;
+  userMobNum.textContent = isLoggedInUser.mobilenumsignup;
+  body.classList.add('overflowhidden')
+  modalbody.classList.remove('none');
 }

@@ -114,16 +114,15 @@ body {
 .row {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .boxStyle {
-  background-color: #f8f9fa;
-  width: 300px;
+  width: 500px;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  
 }
 
 .boxStylekabhai {
@@ -134,25 +133,30 @@ body {
   padding: 10px;
   margin: 10px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  min-height: 200px;
 }
 
 .profilePicture {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-bottom: 10px;
 }
 
 .postInputArea {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
 }
 
 .postInput {
   flex-grow: 1;
   padding: 5px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
   margin-left: 5px;
   font-size: 16px;
@@ -260,7 +264,7 @@ textarea.form-control {
   margin: 10px;
 }
 
-.no1pagalhaiyebutton:hover{
+.no1pagalhaiyebutton:hover {
   background-color: #00d0de;
 }
 
@@ -275,6 +279,33 @@ textarea.form-control {
   margin: 10px;
 }
 
-.no2pagalhaiyebutton:hover{
+.no2pagalhaiyebutton:hover {
   background-color: rgb(70, 165, 202);
+}
+
+.overflowhidden {
+  overflow: hidden;
+}
+
+.firstlineofpostinputar {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 2px solid #AFAFAF;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.secondlineofpostinputar{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  font-size: small;
+}
+
+.gapfromside{
+  margin-right: 5px;
 }
