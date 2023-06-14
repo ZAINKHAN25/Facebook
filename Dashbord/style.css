@@ -367,9 +367,37 @@ border-radius: 100%;
   position: sticky;
   top: 118px;
 width: 288px;
-height: 584px;
-
+height: max-content;
 background: #FFFFFF;
 box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: start;
+padding-top: 15px;
+padding-bottom: 10px;
+}
+
+.inputwaligagah{
+  border-bottom: 2px solid #AFAFAF;
+  width: 95%;
+  padding: 0px 0px 10px 40px;
+  margin-bottom: 20px;
+}
+
+.messagefriend{
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.messagefriend img{
+  border-radius: 100%;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+.descriptofmessagefriend h5{
+  font-weight:bolder;
+  font-size: 18px;
 }
