@@ -1,166 +1,192 @@
 /* Add your custom styles here */
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   color: #05B6C1;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #05B6C1;
-  }
-  
-  .navbar {
-    background-color: #f8f9fa;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95vw;
-    position: sticky;
-    top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.25);
-  }
-  
-  .navbar .navbar-brand {
-    color: #05B6C1;
-    text-decoration: none;
-  }
-  
-  .searchArea {
-    display: flex;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #05B6C1;
+}
 
-  .none{
-    display: none !important;
-  }
-  
-  .searchArea .inputtextsearch {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .searchArea .search {
-    background-color: #05B6C1;
-    border: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+.navbar {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95vw;
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.25);
+}
 
-  .searchArea .search:hover{
-    background-color: #00d0de;
-  }
-  
-  .alagchezen {
-    display: flex;
-    align-items: center;
-  }
-  
-  .alagchezen .nav-link {
-    text-decoration: none;
-    margin: 0 10px;
-    color: #05B6C1;
-  }
-  
-  .alagchezen .nav-link.active {
-    font-weight: bold;
-  }
-  
-  .avatarDummy {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    border-radius: 50%;
-  }
-  
-  .dropdownkeclickperanewalelist {
-    position: absolute;
-    background-color: #f8f9fa;
-    padding: 5px;
-    top: 30px;
-    right: 20px;
-    border-radius: 5px;
-  }
-  
-  .navbar .dropdownkeclickperanewalelist .dropdown-item {
-    color: #343a40;
-    text-decoration: none;
-    display: block;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .navbar .dropdownkeclickperanewalelist .dropdown-item:hover {
-    background-color: #ccc;
-  }
-  
-  .row {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .boxStyle {
-    background-color: #f8f9fa;
-    width: 300px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-  }
-  
-  .profilePicture {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .postInputArea {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .postInput {
-    flex-grow: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-left: 5px;
-    font-size: 16px;
-  }
-  
-  .postInputArea button {
-    background-color: #343a40;
-    border: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .post {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
+.navbar .navbar-brand {
+  color: #05B6C1;
+  text-decoration: none;
+}
+
+.searchArea {
+  display: flex;
+  align-items: center;
+}
+
+.none {
+  display: none !important;
+}
+
+.searchArea .inputtextsearch {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.searchArea .search {
+  background-color: #05B6C1;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.searchArea .search:hover {
+  background-color: #00d0de;
+}
+
+.alagchezen {
+  display: flex;
+  align-items: center;
+}
+
+.alagchezen .nav-link {
+  text-decoration: none;
+  margin: 0 10px;
+  color: #05B6C1;
+}
+
+.alagchezen .nav-link.active {
+  font-weight: bold;
+}
+
+.avatarDummy {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.dropdownkeclickperanewalelist {
+  position: absolute;
+  background-color: #f8f9fa;
+  padding: 5px;
+  top: 30px;
+  right: 20px;
+  border-radius: 5px;
+}
+
+.navbar .dropdownkeclickperanewalelist .dropdown-item {
+  color: #343a40;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.navbar .dropdownkeclickperanewalelist .dropdown-item:hover {
+  background-color: #ccc;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.boxStyle {
+  background-color: #f8f9fa;
+  width: 300px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.boxStylekabhai {
+  background-color: #f8f9fa;
+  position: relative;
+  width: 300px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.profilePicture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.postInputArea {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.postInput {
+  flex-grow: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.postInputArea button {
+  background-color: #343a40;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.profilePictureuppperwala {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -100%);
+  border-radius: 50%;
+  background: url(avatar.png);
+  filter: drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.aikhiclass{
+  margin-top: 5px;
+  font-weight: 300;
+  font-size: 15px;
+  font-family: 'Inter';
+}
