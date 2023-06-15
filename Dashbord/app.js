@@ -84,7 +84,7 @@ function displayPosts(posts) {
 
 
     <div class="thirddivofpost">
-      <span><i class="fa-regular gapfromside fa-heart"></i>PHOTOS</span>
+      <span><i class="fa-regular gapfromside fa-heart"></i>Like</span>
       <span><i class="fa-solid fa-share-from-square"></i>SHARE</span>
       <span><i class="fa-regular gapfromside fa-comment-dots"></i>COMMENT</span>
     </div>
