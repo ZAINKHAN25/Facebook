@@ -130,7 +130,6 @@ body {
   position: sticky;
   width: 300px;
   border-radius: 5px;
-  padding: 10px;
   margin: 10px 0px;
   box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.25);
   max-height: 300px;
@@ -363,7 +362,7 @@ border-radius: 100%;
   display: flex;
   justify-content: space-around;
 }
-.thirdarea{
+.thirdarafirstline{
   position: sticky;
   top: 118px;
 width: 288px;
@@ -377,6 +376,32 @@ align-items: center;
 justify-content: start;
 padding-top: 15px;
 padding-bottom: 10px;
+}
+
+.thirdareasecondline{
+  position: sticky;
+  top: 500px;
+  width: 288px;
+  height: max-content;
+  background: #FFFFFF;
+  box-shadow: 1px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 15px;
+  padding-bottom: 40px;
+}
+
+.requestdiv{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background: #D2FCFF;
+  width: 80%;
+  padding:10px;
+  border-radius: 8px;
 }
 
 .inputwaligagah{
@@ -432,6 +457,7 @@ padding-bottom: 10px;
   text-align: center;
   font-size: x-large;
   font-weight:bold;
+  padding: 10px;
 }
 
 .hoverwaladiv i{
@@ -439,11 +465,38 @@ padding-bottom: 10px;
   color: #05B6C1;
 }
 
-.hoverwaladiv i:hover{
-  background-color:white;
-}
-
 .hoverwaladiv:hover{
   background-color: #05B6C1;
   color:white;
+}
+
+.removebgcolor{
+  color:white !important;
+}
+
+
+.firstdivofthirdaradiv{
+  display: flex;
+}
+
+.firstdivofthirdaradiv img{
+  border-radius: 100%;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.acceptOrDenied{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2px;
+}
+
+.acceptOrDenied input[type = "button"]{
+  color: white;
+  width: 40%;
+  border-radius: 8px;
+  border: none;
+  height: 30px;
 }
