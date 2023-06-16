@@ -1,197 +1,136 @@
-let isLoggedInUser = JSON.parse(localStorage.getItem('lOGINUSER'))
-// var h1 = document.querySelector('.h1')
-const posts = JSON.parse(localStorage.getItem('posts')) || []
+var body = document.querySelector('body');
+var modalbody = document.querySelector('.modalbody');
+let isLoggedInUser = JSON.parse(localStorage.getItem("lOGINUSER")) || {};
 
-if(isLoggedInUser){
+document.addEventListener("DOMContentLoaded", function () {
+  if (Object.keys(isLoggedInUser).length > 0) {
+    displayUserInfo(isLoggedInUser);
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    displayPosts(posts);
+  } else {
     console.log(isLoggedInUser);
-
-
-
-
-
-
-const emailAddress = document.getElementById("emailAddress")
-const userName = document.getElementById("userName")
-const mobNum = document.getElementById("mobNum")
-const gender = document.getElementById("gender")
-const description = document.getElementById("description")
-const postInputBox = document.getElementById("postInputBox")
-const postArea = document.getElementById("postAreaId")
-
-
-
-// [selected posts of logged in user]
-posts.filter((filtered)=>filtered.email == isLoggedInUser.mobilenumsignup).forEach((post) => {
-    var div = document.createElement('div')
-    div.setAttribute('class', 'post my-5 bg-light rounded')
-
-    div.innerHTML = `<div class="upperPart">
-    <div class="authorDetails d-flex ">
-        <img src="../assests/avatar.png" alt="" class="profilePicture">
-        <div>
-            <h4 style="font-size: 15px;">${post.userNameu || "nahi arha hai is me"}</h4>
-            <h5 style="font-size: 12px;">${post.description || "No description added"}</h5>
-            <h6 style="font-size: 10px;">${post.id}</h6>
-            <h6 style="font-size: 10px;">${post.time}</h6>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            :
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete</a></li>
-        </ul>
-    </div>
-</div>
-<div class="postData">
-    <p>
-    ${post.content}
-    </p>
-    <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
-</div>
-<div class="buttons">
-    <p>Like</p>
-    <p>Comment</p>
-    <p>Share</p>
-</div>
-<div class="commentInputArea">
-    <img src="../assests/avatar.png" class="profilePicture" alt="">
-    <input id="commentInputBox" type="text" class="commentInput">
-    <button onclick="commentHandler()">Comment</button>
-</div>`
-    //     div.innerHTML = `<div class="authorDetails d-flex ">
-    //     <img src="../assests/avatar.png" alt="" class="profilePicture">
-    //     <div>
-    //         <h4 style="font-size: 15px;">${post.userName}</h4>
-    //         <h5 style="font-size: 12px;">${post.description || "No description added"}</h5>
-    //         <h6 style="font-size: 10px;">${post.date.split('T')[0]}</h6>
-    //         <h6 style="font-size: 10px;">${post.time}</h6>
-    //     </div>
-    // </div>
-    // <div class="postData">
-    //     <p>
-    //         ${post.postContent}
-    //     </p>
-    //     <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
-    // </div>`
-
-    postArea.prepend(div)
-})
-
-
-emailAddress.innerText = isLoggedInUser.email || " "
-userName.innerText = `${isLoggedInUser.iFirstName} ${isLoggedInUser.iSurnameName}`
-mobNum.innerText = isLoggedInUser.mobilenumsignup
-gender.innerText = isLoggedInUser.gender || ""
-
-// if (isLoggedInUser.description) {    //undefined
-//     description.innerText = isLoggedInUser.description
-// } else {
-//     description.innerText = `No Description added`
-// }
-
-// isLoggedInUser.description ? description.innerText = isLoggedInUser.description : description.innerText = "No description added"
-
-// description.innerText = isLoggedInUser.description ? isLoggedInUser.description : "No description added"
-
-description.innerText = isLoggedInUser.description || "No description added"
-
-function logoutHandler() {
-    localStorage.removeItem('isLoggedInUser')
     window.location.href = "../index.html";
+  }
+});
+
+document.getElementById('nikalnahhai').addEventListener('click', function () {
+  if (Object.keys(isLoggedInUser).length > 0) {
+    var postInputBox = document.getElementById('postInputBox');
+    postInputBox.focus();
+  }
+});
+
+function displayUserInfo(user) {
+  document.getElementById("userName").textContent = user.iFirstName + ' ' + user.iSurnameName;
+  document.getElementById("emailAddress").textContent = user.email;
+  document.getElementById("mobNum").textContent = user.mobilenumsignup;
+  document.getElementById("gender").textContent = user.gender;
+  document.getElementById("description").textContent = user.description || "No Description Added";
 }
 
 function postHandler() {
+  if (Object.keys(isLoggedInUser).length > 0) {
+    const nikalnahhai = document.querySelector('#nikalnahhai');
+    const postInput = document.getElementById("postInputBox");
+    const postContent = postInput.value;
 
-    var div = document.createElement('div')
-    div.setAttribute('class', 'post my-5 bg-light rounded')
+    nikalnahhai.focuses = postContent.focuses;
 
-    div.innerHTML = `<div class="upperPart">
-    <div class="authorDetails d-flex ">
-        <img src="../assests/avatar.png" alt="" class="profilePicture">
-        <div>
-            <h4 style="font-size: 15px;">${isLoggedInUser.iFirstName} ${isLoggedInUser.iSurnameName}</h4>
-            <h5 style="font-size: 12px;">${isLoggedInUser.description || "No description added"}</h5>
-            <h6 style="font-size: 10px;">${new Date()}</h6>
-            <h6 style="font-size: 10px;">${new Date().toLocaleTimeString()}</h6>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            :
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete</a></li>
-        </ul>
-    </div>
-</div>
-<div class="postData">
-    <p>
-    ${postInputBox.value}
-    </p>
-    <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
-</div>
-<div class="buttons">
-    <p>Like</p>
-    <p>Comment</p>
-    <p>Share</p>
-</div>
-<div class="commentInputArea">
-    <img src="../assests/avatar.png" class="profilePicture" alt="">
-    <input id="commentInputBox" type="text" class="commentInput">
-    <button onclick="commentHandler()">Comment</button>
-</div>`
-    //     div.innerHTML = `<div class="authorDetails d-flex ">
-    //     <img src="../assests/avatar.png" alt="" class="profilePicture">
-    //     <div>
-    //         <h4 style="font-size: 15px;">${isLoggedInUser.firstName + " " + isLoggedInUser.surName}</h4>
-    //         <h5 style="font-size: 12px;">${isLoggedInUser.description || "No description added"}</h5>
-    //         <h6 style="font-size: 10px;">${new Date()}</h6>
-    //         <h6 style="font-size: 10px;">${new Date().toLocaleTimeString()}</h6>
-    //     </div>
-    // </div>
-    // <div class="postData">
-    //     <p>
-    //         ${postInputBox.value}
-    //     </p>
-    //     <!--<img src="../assests/car.jpeg" alt="" class="img-fluid"> -->
-    // </div>`
+    if (postContent.trim() !== "") {
+      const post = {
+        id: Date.now(),
+        content: postContent,
+        email: isLoggedInUser.mobilenumsignup,
+        userNameu: isLoggedInUser.iFirstName + " " + isLoggedInUser.iSurnameName,
+        description: isLoggedInUser.description,
+        date: new Date().getDate()
+      };
 
-    postArea.prepend(div)
-    const postObj = {
-        userName: `${isLoggedInUser.iFirstName} ${isLoggedInUser.iSurnameName}`,
-        userEmail: isLoggedInUser.mobilenumsignup,
-        userDescription: isLoggedInUser.description,
-        postContent: postInputBox.value,
-        date: new Date(),
-        time: new Date().toLocaleTimeString()
+      let posts = JSON.parse(localStorage.getItem("posts")) || [];
+      posts.push(post);
+      localStorage.setItem("posts", JSON.stringify(posts));
+
+      displayPosts(posts);
+
+      postInput.value = "";
+      body.classList.remove('overflowhidden');
+      modalbody.classList.add('none');
     }
-    
-    posts.push(postObj)
-    
-    localStorage.setItem('posts', JSON.stringify(posts))
-    postInputBox.value = "";
-
-
-
-}
+  }
 }
 
-else{
-    alert("Please Login in first")
-    window.location.href = "../index.html"
-}
-
-function logout(){
-    var con = confirm("Are you sure you want to logout");
-    if(con === true){
-        lOGINUSER = '';
-        window.location.reload();
-        window.location.href = "../index.html"
+function displayPosts(posts) {
+    const postArea = document.getElementById("postAreaId");
+    postArea.innerHTML = "";
+  
+    for (let post of posts) {
+      if (post.email === isLoggedInUser.mobilenumsignup) {
+        const div = document.createElement("div");
+        div.className = "post";
+        div.innerHTML = `
+          <div class="firstdivofpost">
+            <div class="imgarea">
+              <img src="../assests/avatar.png" class="postimg" alt="">
+            </div>
+            <div class="colomnwalakam">
+              <div class="span1offirslline">${post.userNameu}</div>
+              <div class="span2offirslline">No description added</div>
+              <div class="span3offirslline">5 hours ago</div>
+            </div>
+          </div>
+          <div class="seconddivofpost">${post.content}</div>
+          <div class="thirddivofpost">
+            <span><i class="fa-regular gapfromside fa-heart"></i>Like</span>
+            <span><i class="fa-solid fa-share-from-square"></i>SHARE</span>
+            <span><i class="fa-regular gapfromside fa-comment-dots"></i>COMMENT</span>
+          </div>
+        `;
+        postArea.prepend(div);
+      }
     }
+  }
+  
+
+function logout() {
+  localStorage.removeItem("lOGINUSER");
+  window.location.href = "../index.html";
+}
+
+function navbarScrollingDropdown() {
+  var dropdownItems = document.querySelectorAll('.dropdown-item');
+  var dropdownkeclickperanewalelist = document.querySelectorAll('.dropdownkeclickperanewalelist');
+
+  dropdownItems.forEach(function (item) {
+    item.classList.toggle("none");
+  });
+  dropdownkeclickperanewalelist.forEach(function (item) {
+    item.classList.toggle('removeborderandbackground');
+  });
+}
+
+function removemodalfoo() {
+  modalbody.classList.add('none');
+  body.classList.remove('overflowhidden');
+}
+
+function openmodalfoo() {
+  var modalbody = document.querySelector('.modalbody');
+  var userName = document.querySelector('.infonamemodal h2');
+  var userMobNum = document.querySelector('.infonamemodal p');
+
+  // Update the username and mobile number dynamically
+  userName.textContent = isLoggedInUser.iFirstName + " " + isLoggedInUser.iSurnameName;
+  userMobNum.textContent = isLoggedInUser.mobilenumsignup;
+  body.classList.add('overflowhidden');
+  modalbody.classList.remove('none');
+}
+
+function bgmovewalafoo(id) {
+  var divofid = document.querySelector(`.${id}`);
+  divofid.classList.add('removebgcolor');
+}
+
+function autobackgroundfoo(id) {
+  var divofid = document.querySelector(`.${id}`);
+  divofid.classList.remove('removebgcolor');
 }

@@ -2,115 +2,214 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Profile</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>DREAM</title>
 </head>
 
 <body>
-    <div class="container">
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Social Media App</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../Dashbord/index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../Profile/index.html">My Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">My Network</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Messaging</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assests/avatar.png" class="avatarDummy" alt="">
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Profile View</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+  <div class="body">
+    <!-- navbar -->
+    <nav class="navbar">
+      <a class="navbar-brand" style="font-size: 35px; font-weight: bold;" href="#">DREAM</a>
+      <div class="searchArea">
+        <input type="text" class="inputtextsearch" placeholder="search here">
+        <input type="button" class="search" value="Search">
+      </div>
+      <div class="alagchezen">
+        <a class="nav-link active" href="../Dashbord/index.html">Home</a>
+        <a class="nav-link active" href="#">My Profile</a>
+        <a class="nav-link dropdown-toggle" onclick="navbarScrollingDropdown()">
+          <i class="fa-solid fa-caret-down"></i>
+          <img style="z-index: 13;" src="../assests/avatar.png" class="avatarDummy" alt="">
+          <div class="dropdownkeclickperanewalelist">
+            <a class="dropdown-item none" onclick="logout()">Logout</a>
+            <a class="dropdown-item none">ABOUT</a>
+            <a class="dropdown-item none">SHORTS</a>
+            <a class="dropdown-item none">NEWS</a>
+          </div>
+        </a>
+      </div>
+    </nav>
 
-                </div>
-            </div>
-        </nav>
+    <div class="modalbody none">
 
 
-        <!-- mainArea -->
-        <div class="row">
-            <div class="col boxStyle">
-                <img src="../assests/avatar.png" class="profilePicture" alt="">
-                <h5 id="userName">UserName</h5>
-                <h5 id="emailAddress">User Email</h5>
-                <h6 id="mobNum">User Mobile Number</h6>
-                <h6 id="gender">User Gender</h6>
-                <h6 id="description">User Description</h6>
-            </div>
-            <div class="col-6 boxStyle">
-                <div class="postInputArea">
-                    <img src="../assests/avatar.png" class="profilePicture" alt="">
-                    <input id="postInputBox" type="text" class="postInput">
-                    <button onclick="postHandler()">Post</button>
-                </div>
+      <div class="modal">
 
-                <div class="postArea" id="postAreaId">
-                    <!-- <div class="post my-5 bg-light rounded">
-                        <div class="authorDetails d-flex ">
-                            <img src="../assests/avatar.png" alt="" class="profilePicture">
-                            <div>
-                                <h4 style="font-size: 15px;">UserName</h4>
-                                <h5 style="font-size: 12px;">User Description</h5>
-                                <h6 style="font-size: 10px;">10h</h6>
-                            </div>
-                        </div>
-                        <div class="postData">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae praesentium
-                                laboriosam. Ab, vel architecto ea illo eos soluta quam?
-                            </p>
-                            <img src="../assests/car.jpeg" alt="" class="img-fluid">
-                        </div>
-                    </div> -->
-                </div>
+        <div class="firstline">
 
-            </div>
-            <div class="col boxStyle">
-                3 of 3
-            </div>
+          <img src="../assests/avatar.png" class="postwalatasweer" alt="">
+          <div class="infonamemodal">
+            <h2>ZAIN MATINDA</h2>
+            <p>@ZAIN</p>
+          </div>
+
         </div>
+
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <textarea class="form-control" id="postInputBox"
+                style="padding: 5px; width: 100%; height: 100px; background-color: rgb(255, 255, 255);"
+                placeholder="What do you want to talk about"></textarea>
+            </div>
+          </form>
+        </div>
+
+        <input class="no1pagalhaiyebutton" type="button" onclick="removemodalfoo()" value="Close">
+        <input class="no2pagalhaiyebutton" type="button" value="Post" onclick="postHandler()">
+
+      </div>
+
+
+    </div>
+    <!-- mainArea -->
+    <div class="row">
+      <div class="boxstylekaparentelement">
+
+        <div class="boxStylekabhai">
+          <center>
+            <img src="../assests/avatar.png" class="profilePictureuppperwala" alt="">
+            <h5 id="userName" style="margin-top: 60px; font-size: xx-large;">User Name</h5>
+            <h5 id="emailAddress" class="aikhiclass">User Email</h5>
+            <h6 id="mobNum" class="aikhiclass">User Mobile Number</h6>
+            <h6 id="gender" class="aikhiclass">User Gender</h6>
+            <h6 id="description" class="aikhiclass">User Description</h6>
+          </center>
+        </div>
+        <div class="boxstylekabhaikabhai">
+          <div onmouseleave="autobackgroundfoo('housei')" onmouseover="bgmovewalafoo('housei')" class="hoverwaladiv"><i
+              class="fa-solid housei fa-house"></i>Home</div>
+          <div onmouseleave="autobackgroundfoo('hashtagi')" onmouseover="bgmovewalafoo('hashtagi')"
+            class="hoverwaladiv"><i class="fa-solid hashtagi fa-hashtag"></i>Explore</div>
+          <div onmouseleave="autobackgroundfoo('belli')" onmouseover="bgmovewalafoo('belli')" class="hoverwaladiv"><i
+              class="fa-solid belli fa-bell"></i>Notification</div>
+          <div onmouseleave="autobackgroundfoo('envelopei')" onmouseover="bgmovewalafoo('envelopei')"
+            class="hoverwaladiv"><i class="fa-solid envelopei fa-envelope"></i>Messages</div>
+          <div onmouseleave="autobackgroundfoo('bookmarki')" onmouseover="bgmovewalafoo('bookmarki')"
+            class="hoverwaladiv"><i class="fa-regular bookmarki fa-bookmark"></i>Bookmarks</div>
+          <div onmouseleave="autobackgroundfoo('hearti')" onmouseover="bgmovewalafoo('hearti')" class="hoverwaladiv"><i
+              class="fa-solid hearti fa-heart"></i>Favourite</div>
+          <div onmouseleave="autobackgroundfoo('useri')" onmouseover="bgmovewalafoo('useri')" class="hoverwaladiv"><i
+              class="fa-solid useri fa-user-group"></i>Gropus</div>
+        </div>
+      </div>
+      <div class="boxStyle">
+        <div class="postInputArea">
+          <div class="firstlineofpostinputar">
+            <img src="../assests/avatar.png" class="profilePicture" alt="">
+            <input onclick="openmodalfoo()" placeholder="Create a new post" id="nikalnahhai" type="text"
+              class="postInput">
+          </div>
+          <div class="secondlineofpostinputar">
+            <span><i class="fa-solid gapfromside fa-image"></i>PHOTOS</span>
+            <span><i class="fa-solid gapfromside fa-circle-play"></i>VIDEO</span>
+            <span><i class="fa-solid gapfromside fa-newspaper"></i>WRITE ARTICLE</span>
+          </div>
+        </div>
+
+        <div class="postArea" id="postAreaId">
+          <!-- <div class="post">
+
+
+            <div class="firstdivofpost">
+
+              <div class="imgarea">
+                <img src="../assests/avatar.png" class="postimg" alt="">
+              </div>
+              <div class="colomnwalakam">
+                <div class="span1offirslline">ZAIN KHAN</div>
+                <div class="span2offirslline">No description added</div>
+                <div class="span3offirslline">5 hours ago</div>
+              </div>
+
+            </div>
+
+
+            <div class="seconddivofpost">HELLO WORLD</div>
+
+
+            <div class="thirddivofpost">
+              <span><i class="fa-regular gapfromside fa-heart"></i>PHOTOS</span>
+              <span><i class="fa-solid fa-share-from-square"></i>SHARE</span>
+              <span><i class="fa-regular gapfromside fa-comment-dots"></i>COMMENT</span>
+            </div>
+          </div> -->
+
+
+        </div>
+
+      </div>
+      <div class="thirdarea">
+        <div class="thirdarafirstline">
+
+          <h2 style="margin-bottom: 15px;">MESSAGES</h2>
+          <div class="inputwaligagah">
+            <input style="padding: 15px;" type="search" placeholder="Search Messages">
+          </div>
+
+          <div class="messagefriend">
+            <img src="../assests/IMG-20230426-WA0037-a.jpg" width="50px" height="50px" alt="">
+            <div class="descriptofmessagefriend">
+              <h5>HUZAIFA</h5>
+              <p>Hey where are you bro</p>
+            </div>
+          </div>
+          <div class="messagefriend">
+            <img src="../assests/crz.jpeg" width="50px" height="50px" alt="">
+            <div class="descriptofmessagefriend">
+              <h5>Ronaldo</h5>
+              <p>Hey where are you bro</p>
+            </div>
+          </div>
+          <div class="messagefriend">
+            <img src="../assests/Sir Sufiyan.jpeg" width="50px" height="50px" alt="">
+            <div class="descriptofmessagefriend">
+              <h5>Sir</h5>
+              <p>Hey where are you bro</p>
+            </div>
+          </div>
+          <div class="messagefriend">
+            <img src="../assests/Ben affleck.jpeg" width="50px" height="50px" alt="">
+            <div class="descriptofmessagefriend">
+              <h5>BATMAN</h5>
+              <p>Hey where are you bro</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="thirdareasecondline">
+          <h2 style="margin-bottom: 15px;">Request</h2>
+          
+          <div class="requestdiv">
+
+            <div class="firstdivofthirdaradiv">
+              <img src="../assests/car.jpeg" width="50px" height="50px" alt="">
+              <div>
+                <b>Lamborghini</b>
+                <p>10k followers</p>
+              </div>
+            </div>
+
+            <div class="acceptOrDenied">
+              <input style="background: #05B6C1;" type="button" value="Accept">
+              <input style="background: rgba(0, 81, 86, 0.5);;" type="button" value="Denied">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+  </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
