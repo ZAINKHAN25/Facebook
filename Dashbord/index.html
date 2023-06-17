@@ -221,39 +221,6 @@
 
   </div>
   </div>
-  <script>
-    var profilePictureUpperWala = document.querySelector('.profilePictureuppperwala');
-var modalTwoBoy = document.querySelector('.modaltwoboy');
-var loginPostImages = document.querySelectorAll('.loginuserpostimage');
-
-profilePictureUpperWala.addEventListener('click', function() {
-  modalTwoBoy.classList.remove('none');
-});
-
-function updateLoginProfile(event) {
-  var file = event.target.files[0];
-  var reader = new FileReader();
-  
-  reader.onload = function (e) {
-    var imageSrc = e.target.result;
-    
-    loginPostImages.forEach(function(image) {
-      image.src = imageSrc;
-    });
-  };
-  
-  reader.readAsDataURL(file);
-}
-
-function closeModalTwoFoo() {
-  var modaltwoboy = document.querySelector('.modaltwoboy')
-  var twomodal = document.querySelector('.twomodal');
-  
-  body.classList.remove('overflowhidden')
-  modaltwoboy.classList.add('none');
-}
-
-    </script>
   <script src="app.js"></script>
 
 </body>

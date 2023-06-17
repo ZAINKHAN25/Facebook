@@ -42,9 +42,11 @@ function postHandler() {
       content: postContent,
       email: isLoggedInUser.mobilenumsignup,
       userNameu: isLoggedInUser.iFirstName + " " + isLoggedInUser.iSurnameName,
-description: isLoggedInUser.description,
-date: new Date().getDate()
+      description: isLoggedInUser.description,
+      date: new Date().getDate(),
+      imgsource: isLoggedInUser.profilePicture || "../assests/avatar.png" // Set the profile picture source or default avatar image
     };
+    
 
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
     posts.push(post);
@@ -64,33 +66,25 @@ function displayPosts(posts) {
   
   for (let post of posts) {
     const div = document.createElement("div");
-    div.className = "post";
-    div.innerHTML = `
-
-
-    <div class="firstdivofpost">
-
-      <div class="imgarea">
-        <img src="../assests/avatar.png" class="postimg loginuserpostimage" alt="">
-      </div>
-      <div class="colomnwalakam">
-        <div class="span1offirslline">${post.userNameu}</div>
-        <div class="span2offirslline">No description added</div>
-        <div class="span3offirslline">5 hours ago</div>
-      </div>
-
+div.className = "post";
+div.innerHTML = `
+  <div class="firstdivofpost">
+    <div class="imgarea">
+      <img src="${post.imgsource}" class="postimg loginuserpostimage" alt="">
     </div>
-
-
-    <div class="seconddivofpost">${post.content}</div>
-
-
-    <div class="thirddivofpost">
-      <span><i class="fa-regular gapfromside fa-heart"></i>Like</span>
-      <span><i class="fa-solid fa-share-from-square"></i>SHARE</span>
-      <span><i class="fa-regular gapfromside fa-comment-dots"></i>COMMENT</span>
+    <div class="colomnwalakam">
+      <div class="span1offirslline">${post.userNameu}</div>
+      <div class="span2offirslline">${post.description}</div>
+      <div class="span3offirslline">${post.date} hours ago</div>
     </div>
-    `;
+  </div>
+  <div class="seconddivofpost">${post.content}</div>
+  <div class="thirddivofpost">
+    <span><i class="fa-regular gapfromside fa-heart"></i>PHOTOS</span>
+    <span><i class="fa-solid fa-share-from-square"></i>SHARE</span>
+    <span><i class="fa-regular gapfromside fa-comment-dots"></i>COMMENT</span>
+  </div>
+`;
     console.log(post)
     postArea.prepend(div);
   }
@@ -157,3 +151,35 @@ function autobackgroundfoo(id){
   divofid.classList.remove('removebgcolor')
 }
 
+
+var profilePictureUpperWala = document.querySelector('.profilePictureuppperwala');
+var modalTwoBoy = document.querySelector('.modaltwoboy');
+var loginPostImages = document.querySelectorAll('.loginuserpostimage');
+
+profilePictureUpperWala.addEventListener('click', function() {
+  modalTwoBoy.classList.remove('none');
+});
+
+function updateLoginProfile(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  
+  reader.onload = function (e) {
+    var imageSrc = e.target.result;
+    
+    loginPostImages.forEach(function(image) {
+      image.src = imageSrc;
+    });
+  };
+  
+  reader.readAsDataURL(file);
+
+}
+
+function closeModalTwoFoo() {
+  var modaltwoboy = document.querySelector('.modaltwoboy')
+  var twomodal = document.querySelector('.twomodal');
+  
+  body.classList.remove('overflowhidden')
+  modaltwoboy.classList.add('none');
+}
