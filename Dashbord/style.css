@@ -92,7 +92,7 @@ body {
 
 .dropdownkeclickperanewalelist {
   position: absolute;
-  background-color: #f8f9fa;
+  background-color: transparent;
   padding: 5px;
   top: 30px;
   right: 20px;
@@ -499,4 +499,8 @@ padding-bottom: 10px;
   border-radius: 8px;
   border: none;
   height: 30px;
+}
+
+.removeborderandbackground{
+  background-color: white !important;
 }

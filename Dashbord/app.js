@@ -106,9 +106,9 @@ function navbarScrollingDropdown(){
     dropdownItems.forEach(function (item) {
         item.classList.toggle("none");
     });
+    
     dropdownkeclickperanewalelist.forEach(function (item) {
         item.classList.toggle('removeborderandbackground');
-    
 })
 }
 
