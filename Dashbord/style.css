@@ -198,9 +198,9 @@ body {
   font-family: 'Inter';
 }
 
-.modalbody {
+.modalbody, .modaltwoboy{
   background-color: rgba(0, 0, 0, 0.25);
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100vw;
@@ -211,7 +211,11 @@ body {
   align-items: center;
 }
 
-.modal {
+.modalbody{
+  position: absolute !important;
+}
+
+.modal, .twomodal {
   padding: 10px;
   width: 40%;
   min-height: 30%;
@@ -219,6 +223,13 @@ body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 20%);
+}
+
+.twomodal{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .postwalatasweer {
@@ -322,7 +333,6 @@ border-radius: 8px;
 .postimg{
   width: 80px;
 height: 80px;
-
 background: url(../assests/avatar.png);
 filter: drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.25));
 border-radius: 100%;

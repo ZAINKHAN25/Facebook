@@ -26,7 +26,8 @@
         <a class="nav-link active" href="../Profile/index.html">My Profile</a>
         <a class="nav-link dropdown-toggle" onclick="navbarScrollingDropdown()">
           <i class="fa-solid fa-caret-down"></i>
-          <img style="z-index: 13;" src="../assests/avatar.png" class="avatarDummy" alt="">
+          <img style="z-index: 13;" src="../assests/avatar.png" onclick="openmodalofpostimgfoo()" class="avatarDummy loginuserpostimage" alt="">
+          
           <div class="dropdownkeclickperanewalelist">
               <a class="dropdown-item none" onclick="logout()">Logout</a>
               <a class="dropdown-item none">ABOUT</a>
@@ -37,6 +38,17 @@
       </div>
     </nav>
 
+    
+    <!-- ... -->
+    <div class="modaltwoboy none">
+      <div class="twomodal">
+        <input id="profileImageInput" onchange="updateLoginProfile(event)" type="file">
+        <input style="background: rgb(0, 242, 255); color: white;width: 40%; border-radius: 8px; border: none; height: 30px;" type="button" onclick="closeModalTwoFoo()" value="Close">
+      </div>
+    </div>
+    <!-- ... -->
+
+
     <div class="modalbody none">
 
 
@@ -44,7 +56,7 @@
 
         <div class="firstline">
 
-          <img src="../assests/avatar.png" class="postwalatasweer" alt="">
+          <img src="../assests/avatar.png" class="postwalatasweer loginuserpostimage" alt="">
           <div class="infonamemodal">
             <h2>ZAIN MATINDA</h2>
             <p>@ZAIN</p>
@@ -75,7 +87,8 @@
 
         <div class="boxStylekabhai">
           <center>
-            <img src="../assests/avatar.png" class="profilePictureuppperwala" alt="">
+            <img onclick="opensecondmodalfoo()" id="profilePicture" src="../assests/avatar.png" class="profilePictureuppperwala loginuserpostimage" alt="">
+
             <h5 id="userName" style="margin-top: 60px; font-size: xx-large;">User Name</h5>
             <h5 id="emailAddress" class="aikhiclass">User Email</h5>
             <h6 id="mobNum" class="aikhiclass">User Mobile Number</h6>
@@ -97,13 +110,13 @@
           <div onmouseleave="autobackgroundfoo('hearti')" onmouseover="bgmovewalafoo('hearti')" class="hoverwaladiv"><i
               class="fa-solid hearti fa-heart"></i>Favourite</div>
           <div onmouseleave="autobackgroundfoo('useri')" onmouseover="bgmovewalafoo('useri')" class="hoverwaladiv"><i
-              class="fa-solid useri fa-user-group"></i>Gropus</div>
+              class="fa-solid useri fa-user-group"></i>Groups</div>
         </div>
       </div>
       <div class="boxStyle">
         <div class="postInputArea">
           <div class="firstlineofpostinputar">
-            <img src="../assests/avatar.png" class="profilePicture" alt="">
+            <img src="../assests/avatar.png" class="profilePicture loginuserpostimage" alt="">
             <input onclick="openmodalfoo()" placeholder="Create a new post" id="nikalnahhai" type="text"
               class="postInput">
           </div>
@@ -199,7 +212,7 @@
 
             <div class="acceptOrDenied">
               <input style="background: #05B6C1;" type="button" value="Accept">
-              <input style="background: rgba(0, 81, 86, 0.5);;" type="button" value="Denied">
+              <input style="background: rgba(0, 81, 86, 0.5);" type="button" value="Denied">
             </div>
           </div>
         </div>
@@ -208,8 +221,41 @@
 
   </div>
   </div>
+  <script>
+    var profilePictureUpperWala = document.querySelector('.profilePictureuppperwala');
+var modalTwoBoy = document.querySelector('.modaltwoboy');
+var loginPostImages = document.querySelectorAll('.loginuserpostimage');
 
+profilePictureUpperWala.addEventListener('click', function() {
+  modalTwoBoy.classList.remove('none');
+});
+
+function updateLoginProfile(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  
+  reader.onload = function (e) {
+    var imageSrc = e.target.result;
+    
+    loginPostImages.forEach(function(image) {
+      image.src = imageSrc;
+    });
+  };
+  
+  reader.readAsDataURL(file);
+}
+
+function closeModalTwoFoo() {
+  var modaltwoboy = document.querySelector('.modaltwoboy')
+  var twomodal = document.querySelector('.twomodal');
+  
+  body.classList.remove('overflowhidden')
+  modaltwoboy.classList.add('none');
+}
+
+    </script>
   <script src="app.js"></script>
+
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 var body = document.querySelector('body')
 var modalbody = document.querySelector('.modalbody')
+var modaltwoboy = document.querySelector('.modaltwoboy')
+
 let isLoggedInUser = JSON.parse(localStorage.getItem("lOGINUSER")) || [];
 console.log("", isLoggedInUser);
 
@@ -69,7 +71,7 @@ function displayPosts(posts) {
     <div class="firstdivofpost">
 
       <div class="imgarea">
-        <img src="../assests/avatar.png" class="postimg" alt="">
+        <img src="../assests/avatar.png" class="postimg loginuserpostimage" alt="">
       </div>
       <div class="colomnwalakam">
         <div class="span1offirslline">${post.userNameu}</div>
@@ -127,6 +129,22 @@ function openmodalfoo() {
   userMobNum.textContent = isLoggedInUser.mobilenumsignup;
   body.classList.add('overflowhidden')
   modalbody.classList.remove('none');
+}
+function opensecondmodalfoo(){
+  var modaltwoboy = document.querySelector('.modaltwoboy')
+  var twomodal = document.querySelector('.twomodal');
+
+  body.classList.add('overflowhidden')
+  modaltwoboy.classList.remove('none');
+}
+
+function removemodaltwofoo(){
+  var modaltwoboy = document.querySelector('.modaltwoboy')
+  var twomodal = document.querySelector('.twomodal');
+  
+  body.classList.remove('overflowhidden')
+  modaltwoboy.classList.add('none');
+
 }
 
 function bgmovewalafoo(id){
